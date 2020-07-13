@@ -1,23 +1,24 @@
-import {google} from 'googleapis';
+import db from '../../lib/db-admin';
 
-import googleAuth from '../../lib/google/auth';
+export default (req, res) => {
+  if (!req.query.id) {
+    return db.ref('views').once('value', (snapshot) => {
+      const views = snapshot.val();
+      const allViews = Object.values(views).reduce(
+        (total, value) => total + value
+      );
 
-export default async (req, res) => {
-    const startDate = req.query.startDate;
-    const auth = await googleAuth.getClient();
-    const analytics = google.analytics({
-        auth,
-        version: 'v3'
+      return res.status(200).json({
+        total: allViews
+      });
     });
+  }
 
-    const response = await analytics.data.ga.get({
-        'end-date': 'today',
-        ids: 'ga:187331021',
-        metrics: 'ga:pageviews',
-        'start-date': startDate
-    });
+  const ref = db.ref('views').child(req.query.id);
 
-    return res.status(200).json({
-        pageViews: response.data.rows[0][0]
+  return ref.once('value', (snapshot) => {
+    res.status(200).json({
+      total: snapshot.val()
     });
+  });
 };
