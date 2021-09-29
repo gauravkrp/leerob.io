@@ -1,6 +1,14 @@
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fleerob%2Fleerob.io)
+
 # leerob.io
 
-My portfolio has transformed over the years - from a static HTML site, to Jekyll, to Hugo, and finally to Next.js/React/MDX. My personal slice of the internet provides a platform for my writing and to showcase my latest work.
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Database**: [PlanetScale](https://planetscale.com)
+- **ORM**: [Prisma](https://prisma.io/)
+- **Authentication**: [NextAuth.js](https://next-auth.js.org/)
+- **Deployment**: [Vercel](https://vercel.com)
+- **Content**: [MDX](https://github.com/mdx-js/mdx)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 
 ## Overview
 
@@ -18,21 +26,4 @@ $ yarn
 $ yarn dev
 ```
 
-Create a `.env.local` file similar to `.env`.
-
-```
-FIREBASE_PRIVATE_KEY=
-FIREBASE_CLIENT_EMAIL=
-UNSPLASH_ACCESS_KEY=
-GOOGLE_ENCRYPTION_KEY=
-GOOGLE_ENCRYPTION_IV=
-BUTTONDOWN_API_KEY=
-NEXT_PUBLIC_FATHOM_SITE_ID=
-```
-
-## Built Using
-
-- [Next.js](https://nextjs.org/)
-- [Vercel](https://vercel.com)
-- [MDX](https://github.com/mdx-js/mdx)
-- [Chakra UI](https://chakra-ui.com/)
+Create a `.env` file similar to [`.env.example`](https://github.com/leerob/leerob.io/blob/master/.env.example).
