@@ -32,7 +32,7 @@ also jump to the [list of services](/blog/backend#list-of-services) directly.
 - [Levels of Abstraction](/blog/backend#levels-of-abstraction)
 - [List of Services](/blog/backend#list-of-services)
   - [Backend (as a Service)](/blog/backend#backend-as-a-service)
-    - [Firebase](/blog/backend#firebase)
+    - [Supabase](/blog/backend#supabase)
     - [Hasura](/blog/backend#hasura)
   - [Build Your Own Backend](/blog/backend#build-your-own-backend)
     - [Prisma](/blog/backend#prisma)
@@ -217,41 +217,34 @@ You might see these referred to as "in a box" solutions. For example, Hasura pro
 | [MongoDB](https://www.mongodb.com/)            | NoSQL    | ✅          | ✅                 | ✅             | ⛔️     |
 | [Fauna](https://fauna.com/)                    | NoSQL    | ⛔️         | ⛔️                | ✅             | ✅      |
 | [Userbase](https://userbase.com/)              | NoSQL    | ✅          | ✅                 | ✅             | ⛔️     |
-| [PlanetScale](https://www.planetscale.com/)    | SQL      | ✅          | ⛔️                | 🚧             | ⛔️      |
+| [PlanetScale](https://www.planetscale.com/)    | SQL      | ✅          | ⛔️                | 🚧             | ⛔️     |
 | [Hasura](https://hasura.io/)                   | Postgres | ✅          | ✅                 | 🚧             | ✅      |
 | [Nhost](https://nhost.io/)                     | Postgres | ✅          | ✅                 | ✅             | ✅      |
-| [Supabase](https://supabase.io/)               | Postgres | ✅          | ✅                 | ✅             | ⛔️     |
+| [Supabase](https://supabase.io/)               | Postgres | ✅          | ✅                 | ✅             | ✅      |
 | [AWS Amplify](https://aws.amazon.com/amplify/) | Both     | ✅          | ✅                 | ✅             | ✅      |
 
-### Firebase
+### Supabase
 
-Firebase is a well-established, proven platform. It has (arguably) the best developer experience of any other solutions listed.
+Supabase is an open-source alternative to Firebase. But it's really much more than that. If you want Postgres, you'll want Supabase, hands down. They also have [authentication](https://supabase.com/auth), [storage](https://supabase.com/storage), and support for [GraphQL](https://supabase.com/blog/2021/12/03/pg-graphql).
 
 <ProsCard
-  title="Firebase"
+  title="Supabase"
   pros={[
     'You need to launch an application quick',
     'You want authentication included',
     'You need to support social logins',
     'You need real-time data',
-    'You want an established community with many examples'
+    'You want to use Postgres'
   ]}
 />
 
 <ConsCard
-  title="Firebase"
+  title="Supabase"
   cons={[
-    'Your backend needs to be open source',
-    'You have very relational data',
-    `You don't want any sort of vendor lock-in`
+    'You want to use MySQL instead of Postgres',
+    `You don't want to bet on an earlier stage company`
   ]}
 />
-
-**Resources**
-
-- You can mitigate some non-relational pain with [composite indexes](https://firebase.google.com/docs/firestore/query-data/index-overview).
-- [Model Relational Data in Firestore NoSQL](https://www.youtube.com/watch?v=jm66TSlVtcc)
-- [Going Serverless with Next.js and Firebase](/blog/nextjs-firebase-serverless)
 
 ### Hasura
 
@@ -300,20 +293,19 @@ It's also worth mentioning you can use [AWS RDS](https://aws.amazon.com/rds/) to
 It's [proven technology](http://boringtechnology.club/) that even has [credits available](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-launches-activate-founders-package/)
 for founder/startups.
 
-| Name                                                         | Type      | Open Source | Self Hosting? | AuthN Included | GraphQL |
-| ------------------------------------------------------------ | --------- | ----------- | ------------- | -------------- | ------- |
-| [AWS DynamoDB](https://aws.amazon.com/dynamodb/)             | NoSQL     | ✅          | ✅            | ⛔️            | ⛔️     |
-| [Prisma](https://prisma.io)                                  | SQL-based | ✅          | ✅            | ⛔️            | ⛔️     |
-| [Prisma](https://prisma.io) + [Nexus](https://nexus.js.org/) | SQL-based | ✅          | ✅            | 🚧             | ✅      |
+| Name                                                                | Type      | Open Source | Self Hosting? | AuthN Included | GraphQL |
+| ------------------------------------------------------------------- | --------- | ----------- | ------------- | -------------- | ------- |
+| [AWS DynamoDB](https://aws.amazon.com/dynamodb/)                    | NoSQL     | ✅          | ✅            | ⛔️            | ⛔️     |
+| [Prisma](https://prisma.io)                                         | SQL-based | ✅          | ✅            | ⛔️            | ⛔️     |
+| [Prisma](https://prisma.io) + [Nexus](https://nexus.js.org/)        | SQL-based | ✅          | ✅            | 🚧             | ✅      |
+| [Prisma](https://prisma.io) + [NextAuth](https://next-auth.js.org/) | SQL-based | ✅          | ✅            | ✅             | ⛔️     |
 
 _Honorable Mentions: Laravel, Rails. I wanted to keep this JavaScript focused._
 
 ### Prisma
 
-Prisma provides an auto-generated and type-safe query builder based on your database schema.
-It currently supports PostgreSQL, MySQL, and SQLite databases.
+Prisma provides an auto-generated and type-safe query builder based on your database schema. It currently supports PostgreSQL, MySQL, SQL Server, SQLite and MongoDB.
 
-There are frameworks like [Redwood](https://redwoodjs.com/) and [Blitz](https://blitzjs.com/) built on-top of Prisma.
 If you want to build a GraphQL API with Prisma, you can pair it with [Nexus](https://nexus.js.org/). Nexus has [plug-ins](https://nexus.js.org/docs/api-plugins)
 for authentication / authorization.
 
